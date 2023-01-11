@@ -2,7 +2,7 @@
 
 ## Hexlet tests, linter status and maintainability:
 [![Actions Status](https://github.com/256sha9gag/frontend-bootcamp-project-11/workflows/hexlet-check/badge.svg)](https://github.com/256sha9gag/frontend-bootcamp-project-11/actions)
-[![Node CI](https://github.com/256sha9gag/frontend-bootcamp-project-11/actions/workflows/nodejs.yml/badge.svg)](https://github.com/256sha9gag/frontend-bootcamp-project-11/actions/workflows/nodejs.yml)
+[![Node CI](https://github.com/256sha9gag/frontend-bootcamp-project-11/actions/workflows/nodejs.yml/badge.svg?event=push)](https://github.com/256sha9gag/frontend-bootcamp-project-11/actions/workflows/nodejs.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/73e219a36e58c5178f84/maintainability)](https://codeclimate.com/github/256sha9gag/frontend-bootcamp-project-11/maintainability)
 
 ## Description:
