@@ -14,8 +14,8 @@
     - Mac / Linux
     - Node.js [18.x]
 
-  ### Installation
+  ### Installation:
     make install
 
-  ### Lint
+  ### Lint:
     make lint
