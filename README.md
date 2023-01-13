@@ -8,6 +8,9 @@
 ## Description:
   The service for aggregating RSS feeds that makes it easy to read a variety of sources, such as blogs. It allows you to add an unlimited number of RSS feeds, updates them and adds new entries to the total stream.
 
+## Usage
+  To use the app, follow this [link](https://rss-reader-frontend.vercel.app/) or copy and paste into your browser url: https://rss-reader-frontend.vercel.app/
+
 ## Installation:
 
   ### Requirements:
