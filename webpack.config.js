@@ -12,11 +12,11 @@ export default {
   entry: './src/index.js',
   output: {
     filename: 'main.js',
-    path: resolve(__dirname, 'public', 'dist'),
+    path: resolve(__dirname, 'dist'),
     clean: true,
   },
   devServer: {
-    static: resolve(__dirname, 'public', 'dist'),
+    static: resolve(__dirname, 'dist'),
     port: 8080,
     hot: true,
   },
