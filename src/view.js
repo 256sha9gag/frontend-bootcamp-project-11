@@ -1,27 +1,25 @@
 import onChange from 'on-change';
 import state from './model.js';
 
-const pErrors = document.querySelector('.feedback');
-const input = document.querySelector('[name="url"]');
-
-const renderErrorsValidation = (error) => {
-  pErrors.textContent = error;
-  pErrors.classList.remove('text-success');
-  pErrors.classList.add('text-danger');
-  input.classList.add('is-invalid');
-};
-
-const renderSuccessValidation = (status) => {
-  pErrors.textContent = status;
-  pErrors.classList.remove('text-danger');
-  pErrors.classList.add('text-success');
-  input.classList.remove('is-invalid');
+const renderValidation = (content, value) => {
+  const errorParag = document.querySelector('.feedback');
+  const input = document.querySelector('[name="url"]');
+  errorParag.textContent = content;
+  if (value) {
+    errorParag.classList.remove('text-danger');
+    errorParag.classList.add('text-success');
+    input.classList.remove('is-invalid');
+  } else {
+    errorParag.classList.remove('text-success');
+    errorParag.classList.add('text-danger');
+    input.classList.add('is-invalid');
+  }
 };
 
 export default onChange(state, (path, value) => {
-  if (!value) {
-    renderErrorsValidation(state.error);
+  if (value) {
+    renderValidation(state.status, value);
   } else {
-    renderSuccessValidation(state.status);
+    renderValidation(state.error, value);
   }
 });
