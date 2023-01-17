@@ -1,9 +1,5 @@
 export default {
   translation: {
-    languages: {
-      en: 'English',
-      ru: 'Русский',
-    },
     title: 'RSS агрегатор',
     description: 'Начните читать RSS сегодня! Это легко, это красиво.',
     examples: 'Примеры: <br/>https://ru.hexlet.io/lessons.rss<br/>https://habr.com/ru/rss/hubs/all/<br/>http://static.feed.rbc.ru/rbc/logical/footer/news.rss',
