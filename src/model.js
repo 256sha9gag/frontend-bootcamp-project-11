@@ -1,6 +1,7 @@
 export default {
+  lng: '',
   feeds: [],
-  status: 'RSS успешно загружен',
-  error: '',
+  status: '',
   isValid: null,
+  i18nInstance: null,
 };

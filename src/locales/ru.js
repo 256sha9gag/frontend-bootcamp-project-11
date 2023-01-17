@@ -6,7 +6,7 @@ export default {
     },
     title: 'RSS агрегатор',
     description: 'Начните читать RSS сегодня! Это легко, это красиво.',
-    examples: 'Примеры: \nhttps://ru.hexlet.io/lessons.rss\nhttps://habr.com/ru/rss/hubs/all/\nhttp://static.feed.rbc.ru/rbc/logical/footer/news.rss',
+    examples: 'Примеры: <br/>https://ru.hexlet.io/lessons.rss<br/>https://habr.com/ru/rss/hubs/all/<br/>http://static.feed.rbc.ru/rbc/logical/footer/news.rss',
     inputContent: 'Ссылка RSS',
     button: {
       add: 'Добавить',
@@ -16,5 +16,10 @@ export default {
     },
     posts: 'Посты',
     feeds: 'Фиды',
+    status: {
+      exist: 'RSS уже существует',
+      invalid: 'Ссылка должна быть валидным URL',
+      success: 'RSS успешно загружен',
+    },
   },
 };

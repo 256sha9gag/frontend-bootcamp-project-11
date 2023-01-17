@@ -8,14 +8,15 @@ const schema = yup.object().shape({
 
 const validation = (web) => {
   if (state.feeds.includes(web.website)) {
-    state.error = 'RSS уже существует';
+    state.status = 'exist';
     watchedState.isValid = false;
   } else {
     schema.validate(web)
       .then((url) => state.feeds.push(url.website))
+      .then(() => { state.status = 'success'; })
       .then(() => { watchedState.isValid = true; })
       .catch(() => {
-        state.error = 'Ссылка должна быть валидным URL';
+        state.status = 'invalid';
         watchedState.isValid = false;
       });
   }
