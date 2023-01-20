@@ -1,7 +1,9 @@
 export default {
+  i18nInstance: null,
   lng: '',
+  state: '',
+  errors: null,
+  links: [],
   feeds: [],
   status: '',
-  isValid: null,
-  i18nInstance: null,
 };
