@@ -6,15 +6,18 @@ export default {
     inputContent: 'Link RSS',
     button: {
       add: 'Add',
-      view: 'view',
+      view: 'View',
       read: 'Read all',
       close: 'Close',
     },
     posts: 'Posts',
     feeds: 'Feeds',
-    status: {
+    errors: {
       exist: 'RSS already exists',
-      invalid: 'Link must be a valid URL',
+      invalidURL: 'Link must be a valid URL',
+      invalidRSS: 'Resource does not contain valid RSS',
+    },
+    status: {
       success: 'RSS successfully uploaded',
     },
   },

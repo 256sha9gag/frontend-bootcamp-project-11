@@ -12,9 +12,12 @@ export default {
     },
     posts: 'Посты',
     feeds: 'Фиды',
-    status: {
+    errors: {
       exist: 'RSS уже существует',
-      invalid: 'Ссылка должна быть валидным URL',
+      invalidURL: 'Ссылка должна быть валидным URL',
+      invalidRSS: 'Ресурс не содержит валидный RSS',
+    },
+    status: {
       success: 'RSS успешно загружен',
     },
   },
