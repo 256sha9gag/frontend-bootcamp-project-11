@@ -4,6 +4,9 @@ export default {
   state: '',
   errors: null,
   links: [],
+  posts: [],
   feeds: [],
-  status: '',
+  status: 'success',
+  pressedLinkId: [],
+  modalId: null,
 };
