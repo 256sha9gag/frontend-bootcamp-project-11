@@ -4,19 +4,19 @@ import { dirname } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
-const _filename = fileURLToPath(import.meta.url);
-const _dirname = dirname(_filename);
+const filename = fileURLToPath(import.meta.url);
+const dirName = dirname(filename);
 
 export default {
   mode: process.env.NODE_ENV || 'development',
   entry: './src/index.js',
   output: {
     filename: 'main.js',
-    path: resolve(_dirname, 'dist'),
+    path: resolve(dirName, 'dist'),
     clean: true,
   },
   devServer: {
-    static: resolve(_dirname, 'dist'),
+    static: resolve(dirName, 'dist'),
     port: 8080,
     hot: true,
   },
