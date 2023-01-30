@@ -1,16 +1,19 @@
 import * as yup from 'yup';
 import state from './model.js';
 
-const schema = yup.string().required().url();
-
 const validation = (url) => {
-  if (state.links.includes(url)) {
-    state.errors = 'exist';
-  }
-  return schema.validate(url)
-    .catch(() => {
-      state.errors = 'invalidURL';
-    });
+  yup.setLocale({
+    mixed: { required: 'required', notOneOf: 'exist' },
+    string: {
+      url: 'invalidURL',
+    },
+  });
+
+  const schema = yup.string().required().url().notOneOf(state.links);
+
+  return schema.validate(url).catch((e) => {
+    state.errors = e.errors;
+  });
 };
 
 export default validation;
