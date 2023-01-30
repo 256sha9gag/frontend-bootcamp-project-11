@@ -4,13 +4,21 @@ export default (data, url) => {
   const parser = new DOMParser();
   const doc = parser.parseFromString(data, 'application/xml');
   const error = doc.querySelector('parsererror');
-  if (error) {
+
+  if (error !== null) {
     return null;
   }
+
   const feedTitle = doc.querySelector('channel > title').textContent;
   const feedDescription = doc.querySelector('channel > description').textContent;
   const idFeed = _.uniqueId();
   const items = doc.querySelectorAll('item');
+  const feed = {
+    title: feedTitle,
+    description: feedDescription,
+    link: url,
+    idFeed,
+  };
   const posts = [];
   items.forEach((item) => {
     const itemTitle = item.querySelector('title').textContent;
@@ -21,16 +29,8 @@ export default (data, url) => {
       title: itemTitle,
       description: itemDescription,
       link: itemLink,
-      idItem,
+      id: idItem,
     });
   });
-  const feed = {
-    title: feedTitle,
-    description: feedDescription,
-    link: url,
-    idFeed,
-    posts,
-  };
-
-  return feed;
+  return [feed, posts];
 };
