@@ -1,8 +1,8 @@
 export default {
   translation: {
     title: 'RSS агрегатор',
-    description: 'Начните читать RSS сегодня! Это легко, это красиво.',
-    examples: 'Примеры: <br/>https://ru.hexlet.io/lessons.rss<br/>https://habr.com/ru/rss/hubs/all/<br/>http://static.feed.rbc.ru/rbc/logical/footer/news.rss',
+    description: 'Добавляйте RSS-каналы и читайте в удобном формате! Автообновление раз в 5 секунд!',
+    examples: 'Примеры: <br/>https://ru.hexlet.io/lessons.rss<br/>https://lenta.ru/rss/news<br/>http://static.feed.rbc.ru/rbc/logical/footer/news.rss',
     inputContent: 'Ссылка RSS',
     button: {
       add: 'Добавить',
@@ -13,12 +13,15 @@ export default {
     posts: 'Посты',
     feeds: 'Фиды',
     errors: {
+      required: 'Не должно быть пустым',
       exist: 'RSS уже существует',
       invalidURL: 'Ссылка должна быть валидным URL',
       invalidRSS: 'Ресурс не содержит валидный RSS',
+      errorNetwork: 'Ошибка сети',
     },
     status: {
       success: 'RSS успешно загружен',
     },
+    footer: 'Учебный проект, созданный Габриеляном Г.',
   },
 };

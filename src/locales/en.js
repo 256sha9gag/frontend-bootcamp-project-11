@@ -1,8 +1,8 @@
 export default {
   translation: {
     title: 'RSS aggregator',
-    description: 'Start reading RSS today! It\'s easy, it\'s beautiful.',
-    examples: 'Examples: <br/>https://ru.hexlet.io/lessons.rss<br/>https://habr.com/ru/rss/hubs/all/<br/>http://static.feed.rbc.ru/rbc/logical/footer/news.rss',
+    description: 'Add RSS feeds and read in a convenient format! Automatically update every 5 seconds!',
+    examples: 'Examples: <br/>https://ru.hexlet.io/lessons.rss<br/>https://lenta.ru/rss/news<br/>http://static.feed.rbc.ru/rbc/logical/footer/news.rss',
     inputContent: 'Link RSS',
     button: {
       add: 'Add',
@@ -13,12 +13,15 @@ export default {
     posts: 'Posts',
     feeds: 'Feeds',
     errors: {
+      required: 'It shouldn\'t be empty',
       exist: 'RSS already exists',
       invalidURL: 'Link must be a valid URL',
       invalidRSS: 'Resource does not contain valid RSS',
+      errorNetwork: 'Network error',
     },
     status: {
       success: 'RSS successfully uploaded',
     },
+    footer: 'Study project, created by Gabrielyan G.',
   },
 };
