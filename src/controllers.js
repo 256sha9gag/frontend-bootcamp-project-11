@@ -8,7 +8,16 @@ import loadUpdate from './update-loader.js';
 export default () => {
   const form = document.querySelector('form');
   const changeLanguage = document.querySelectorAll('[data-lang="lang"]');
+  const listPosts = document.querySelector('[data-ul="posts"]');
+  const body = document.querySelector('body');
   loadUpdate();
+
+  body.addEventListener('click', (e) => {
+    const data = e.target;
+    if (data.dataset.bsDismiss === 'modal' || data.id === 'modal') {
+      watchedState.modalId = null;
+    }
+  });
 
   changeLanguage.forEach((button) => {
     button.addEventListener('click', (e) => {
@@ -16,19 +25,30 @@ export default () => {
     });
   });
 
+  listPosts.addEventListener('click', (e) => {
+    const { id } = e.target.dataset;
+    console.log(e.target.dataset);
+
+    if (!state.pressedLinkId.includes(id)) {
+      watchedState.pressedLinkId.push(id);
+    }
+
+    if (e.target.type === 'button') {
+      watchedState.modalId = id;
+    }
+  });
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     state.errors = null;
-    state.status = null;
     watchedState.state = 'processing';
     const formData = new FormData(e.target);
     const url = formData.get('url');
     validation(url)
       .then(() => {
-        if (state.errors !== null) {
+        if (state.errors) {
           watchedState.state = 'failed';
         } else {
-          state.links.push(url.toString());
           load(url)
             .then((data) => parse(data, url.toString()))
             .then((parsed) => {
@@ -36,9 +56,11 @@ export default () => {
                 state.errors = 'invalidRSS';
                 watchedState.state = 'failed';
               } else {
-                state.feeds.push(parsed);
-                console.log(parsed);
-                state.status = 'success';
+                const [feed, posts] = parsed;
+                state.links.push(url.toString());
+                state.feeds.push(feed);
+                state.posts = [...posts, ...state.posts];
+                console.log(state);
                 watchedState.state = 'processed';
               }
             });
