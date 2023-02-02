@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import controllers from './controllers.js';
+import handlers from './handlers.js';
 import state from './model.js';
 import watchedState from './view.js';
 import resources from './locales/index.js';
@@ -9,7 +9,7 @@ const app = (i18next) => {
   const defaultLanguage = 'ru';
   watchedState.lng = defaultLanguage;
   state.state = 'filling';
-  controllers();
+  handlers();
 };
 
 export default () => {
@@ -20,7 +20,7 @@ export default () => {
       debug: false,
       resources,
     })
-    .then((t) => { t('key'); })
+    .then(() => {})
+    .then(() => app(i18nInstance))
     .catch((e) => { throw new Error('Error init i18nInstance', e); });
-  return app(i18nInstance);
 };
