@@ -1,7 +1,6 @@
 import * as yup from 'yup';
-import state from './model.js';
 
-const validation = (url) => {
+const validation = (url, existingFeeds) => {
   yup.setLocale({
     mixed: { required: 'required', notOneOf: 'exist' },
     string: {
@@ -9,10 +8,10 @@ const validation = (url) => {
     },
   });
 
-  const schema = yup.string().required().url().notOneOf(state.links);
+  const schema = yup.string().required().url().notOneOf(existingFeeds);
 
   return schema.validate(url).catch((e) => {
-    state.errors = e.errors;
+    throw new yup.ValidationError(e);
   });
 };
 
