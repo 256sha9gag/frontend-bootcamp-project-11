@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import handlers from './handlers.js';
+import handler from './handler.js';
 import state from './model.js';
 import watchedState from './view.js';
 import resources from './locales/index.js';
@@ -9,7 +9,7 @@ const app = (i18next) => {
   const defaultLanguage = 'ru';
   watchedState.lng = defaultLanguage;
   state.state = 'filling';
-  handlers();
+  handler();
 };
 
 export default () => {

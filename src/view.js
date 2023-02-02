@@ -28,7 +28,6 @@ const elements = {
 const renderModal = (translation, id) => {
   const div = document.createElement('div');
   div.classList.add('modal-backdrop', 'fade', 'show');
-  console.log(id);
 
   if (id) {
     elements.body.classList.add('modal-open');
@@ -36,7 +35,6 @@ const renderModal = (translation, id) => {
     elements.modal.classList.add('show');
     elements.modal.setAttribute('style', 'display: block;');
     const post = state.posts.find((p) => p.id === id);
-    console.log(post);
     elements.modalTitle.textContent = post.title;
     elements.modalBody.textContent = post.description;
     elements.readAll.textContent = translation('button.read');

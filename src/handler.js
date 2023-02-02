@@ -27,7 +27,6 @@ export default () => {
 
   listPosts.addEventListener('click', (e) => {
     const { id } = e.target.dataset;
-    console.log(e.target.dataset);
 
     if (!state.pressedLinkId.includes(id)) {
       watchedState.pressedLinkId.push(id);
