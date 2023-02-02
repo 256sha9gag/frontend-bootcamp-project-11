@@ -60,7 +60,6 @@ export default () => {
                 state.links.push(url.toString());
                 state.feeds.push(feed);
                 state.posts = [...posts, ...state.posts];
-                console.log(state);
                 watchedState.state = 'processed';
               }
             });
