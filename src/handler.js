@@ -44,20 +44,20 @@ export default () => {
     const formData = new FormData(e.target);
     const url = formData.get('url');
     validation(url, state.links)
-      .then(() => load(url)
-        .then((data) => parse(data, url.toString()))
-        .then((parsed) => {
-          if (!parsed) {
-            state.errors = 'invalidRSS';
-            watchedState.state = 'failed';
-          } else {
-            const [feed, posts] = parsed;
-            state.links.push(url.toString());
-            state.feeds.push(feed);
-            state.posts = [...posts, ...state.posts];
-            watchedState.state = 'processed';
-          }
-        }))
+      .then(() => load(url))
+      .then((data) => parse(data, url.toString()))
+      .then((dataParsed) => {
+        if (!dataParsed) {
+          state.errors = 'invalidRSS';
+          watchedState.state = 'failed';
+        } else {
+          const [feed, posts] = dataParsed;
+          state.links.push(url.toString());
+          state.feeds.push(feed);
+          state.posts = [...posts, ...state.posts];
+          watchedState.state = 'processed';
+        }
+      })
       .catch((err) => {
         state.errors = err.errors.join();
         watchedState.state = 'failed';
